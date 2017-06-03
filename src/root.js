@@ -1,11 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router'
+
 
 import App from './containers/App'
+import Routes from './routes'
 
 export default ({ store }) => (
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>
 )
