@@ -7,10 +7,13 @@ export default () => (
   <header>
     <h1>React Redux Boilerplate</h1>
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/login">Login</Link>
-      <a href="#">Register</a>
+      <ul>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/login'>Login</Link></li>
+        <li><a href='#'>Register</a></li>
+      </ul>
     </nav>
+    <br />
     <Button>Click me!</Button>
   </header>
 )

@@ -13,7 +13,7 @@ render(
 
 if (module.hot) {
   module.hot.accept('./root.js', () => {
-    const NextRoot = require('./root.js').default;
-    render(<NextRoot store={store} />, document.getElementById('app'));
+    const NextRoot = require('./root.js').default
+    render(<NextRoot store={store} />, document.getElementById('app'))
   })
 }

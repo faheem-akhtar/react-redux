@@ -1,5 +1,12 @@
 import React from 'react'
 
+import Header from '@/components/Header'
+import LoginForm from '@/components/Login/form'
+
 export default () => (
-  <h1>Login</h1>
+  <div>
+    <Header />
+    <h2>Login</h2>
+    <LoginForm />
+  </div>
 )

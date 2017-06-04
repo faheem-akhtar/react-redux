@@ -7,8 +7,8 @@ import LoginPage from '@/containers/LoginPage'
 export default () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/login" component={LoginPage} />
-      <Route path="/" component={HomePage} />
+      <Route path='/login' component={LoginPage} />
+      <Route path='/' component={HomePage} />
     </Switch>
   </BrowserRouter>
 )
