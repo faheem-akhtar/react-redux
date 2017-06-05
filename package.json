@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "mem",
   "version": "1.0.0",
   "description": "A react boilerplate application",
   "author": "Faheem Akhtar <faheempiscean@gmail.com>",
@@ -14,15 +14,7 @@
   "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/faheem-akhtar/react-redux-boilerplate.git"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/faheem-akhtar/react-redux-boilerplate/issues"
-  },
-  "homepage": "https://github.com/faheem-akhtar/react-redux-boilerplate#readme",
   "dependencies": {
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -60,5 +52,9 @@
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.org/faheem-akhtar/mem.git"
   }
 }

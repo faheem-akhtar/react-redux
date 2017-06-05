@@ -2,20 +2,16 @@ import React from 'react'
 import { Field, reduxForm, propTypes } from 'redux-form'
 
 import Button from '@/components/core/Button'
+import renderInput from '@/components/Fields/input'
+import * as validation from '@/components/Validation'
 
-let LoginForm = ({ handleSubmit }) => {
+let LoginForm = ({ handleSubmit, pristine, submitting }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
+      <Field label="Email" name="email" component={renderInput} type="email" validate={[validation.required, validation.email]} />
+      <Field label="Password" name="password" component={renderInput} type="password" validate={[validation.required]} />
       <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="text" id="email" />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <Field name="password" component="input" type="password" id="password" />
-      </div>
-      <div>
-        <Button>Submit</Button>
+        <Button disabled={pristine || submitting}>Submit</Button>
       </div>
     </form>
   )
