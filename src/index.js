@@ -1,8 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
+import * as firebase from 'firebase'
 
 import configureStore from './store'
 import Root from './root'
+import { config as firebaseConfig } from '../config/firebase'
+
+firebase.initializeApp(firebaseConfig)
 
 const store = configureStore()
 

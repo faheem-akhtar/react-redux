@@ -1,17 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 
+import { fetchSignInUser } from '@/containers/Auth/actions'
 import Routes from './routes'
 
-let Root = ({ store }) => (
-  <Provider store={store}>
-    <Routes />
-  </Provider>
-)
-
-Root.propTypes = {
-  store: PropTypes.object.isRequired
+class Root extends Component {
+  static propTypes = {
+    store: PropTypes.object,
+    fetchSignInUser: PropTypes.func
+  }
+  componentWillMount () {
+    this.props.fetchSignInUser()
+  }
+  render () {
+    const { store } = this.props
+    return (
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    )
+  }
 }
 
-export default Root
+const mapDispatchToProps = dispatch => ({
+  fetchSignInUser: () => {
+    dispatch(fetchSignInUser())
+  }
+})
+
+export default connect(null, mapDispatchToProps)(Root)
