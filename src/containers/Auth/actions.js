@@ -2,9 +2,32 @@ import * as firebase from 'firebase'
 
 import { SIGN_IN, SIGN_OUT } from '@/store/action-types'
 
+const uidStorageKey = 'MEM_UID'
+
 export const signInUser = ({ email, password }) => {
-  return dispatch => {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+  return () => {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(e => {
+        console.log(e.message)
+      })
+  }
+}
+
+export const signOutUser = () => () => firebase.auth().signOut()
+
+export const signUpUser = ({ email, password, name }) => {
+  return () => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        if (!user) {
+          return
+        }
+        user.updateProfile({
+          displayName: name
+        }).then(() => {
+          return { ...user, displayName: name }
+        })
+      })
       .catch(e => {
         console.log(e.message)
       })
@@ -13,18 +36,27 @@ export const signInUser = ({ email, password }) => {
 
 export const fetchSignInUser = () => {
   return dispatch => {
-    firebase.auth().onAuthStateChanged(user => {
+    return firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        window.localStorage.setItem(uidStorageKey, user.uid)
         dispatch({
           type: SIGN_IN,
           payload: user
         })
       } else {
+        window.localStorage.removeItem(uidStorageKey)
         dispatch({
           type: SIGN_OUT
         })
       }
     })
+  }
+}
+
+export const util = {
+  isAuthenticated (auth) {
+    const currentUser = auth ? auth.user : firebase.auth().currentUser
+    return !!currentUser || !!localStorage.getItem(uidStorageKey)
   }
 }
 

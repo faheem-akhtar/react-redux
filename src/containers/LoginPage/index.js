@@ -2,41 +2,41 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Header from '@/components/Header'
+import Header from '@/containers/Header'
 import LoginForm from '@/components/Login/form'
 import { signInUser } from '@/containers/Auth/actions'
 
 class LoginPage extends Component {
-  static propTypes = {
-    auth: PropTypes.object,
-    signIn: PropTypes.func
-  }
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.submit = this.submit.bind(this)
   }
+  static propTypes = {
+    signInUser: PropTypes.func
+  }
+  static contextTypes = {
+    router: PropTypes.object
+  }
   submit (values) {
-    this.props.signIn(values)
+    this.props.signInUser(values).then(user => {
+      // TODO: we need a better solution here
+      if (!user) {
+        return
+      }
+      setTimeout(() => {
+        this.context.router.history.push('/')
+      }, 500)
+    })
   }
   render () {
-    const { users } = this.props.auth
     return (
       <div>
         <Header />
         <h2>Login</h2>
         <LoginForm onSubmit={this.submit} />
-        {JSON.stringify(users)}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  signIn: values => dispatch(signInUser(values))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+export default connect(null, { signInUser })(LoginPage)
