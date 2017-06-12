@@ -22,6 +22,14 @@ class Header extends Component {
       return <li><Link to="/login">Login</Link></li>
     }
   }
+  renderRegisterNav () {
+    const { auth } = this.props
+    if (!util.isAuthenticated(auth)) {
+      return <li><Link to="/signup">Register</Link></li>
+    } else {
+      return ''
+    }
+  }
   logoutClickHandler (event) {
     event.preventDefault()
     this.props.signOutUser()
@@ -33,7 +41,7 @@ class Header extends Component {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/signup">Register</Link></li>
+            {this.renderRegisterNav()}
             {this.renderLoginNav()}
           </ul>
         </nav>

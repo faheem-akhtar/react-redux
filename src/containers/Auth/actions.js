@@ -27,6 +27,7 @@ export const signUpUser = ({ email, password, name }) => {
         }).then(() => {
           return { ...user, displayName: name }
         })
+        return user
       })
       .catch(e => {
         console.log(e.message)
