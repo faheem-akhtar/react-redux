@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Header from '@/containers/Header'
+import Centered from '@/components/core/Wrappers/Centered'
 import LoginForm from '@/components/Login/form'
 import { signInUser } from '@/containers/Auth/actions'
 
@@ -30,11 +30,9 @@ class LoginPage extends Component {
   }
   render () {
     return (
-      <div>
-        <Header />
-        <h2>Login</h2>
+      <Centered darkBg>
         <LoginForm onSubmit={this.submit} />
-      </div>
+      </Centered>
     )
   }
 }

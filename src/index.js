@@ -5,6 +5,7 @@ import * as firebase from 'firebase'
 import configureStore from './store'
 import Root from './root'
 import { config as firebaseConfig } from '../config/firebase'
+import 'sanitize.css/sanitize.css'
 
 firebase.initializeApp(firebaseConfig)
 

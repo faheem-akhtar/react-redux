@@ -54,8 +54,30 @@ module.exports = {
           ? ExtractTextPlugin.extract({
               use: 'css-loader?minimize'
             })
-          : ['css-loader']
-      }
+          : ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader',
+      }/*,
+      {
+        test: /\.(jpg|png|gif)$/,
+        loaders: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              progressive: true,
+              optimizationLevel: 7,
+              interlaced: false,
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+            },
+          },
+        ],
+      }*/
     ]
   },
   plugins: config.isProd

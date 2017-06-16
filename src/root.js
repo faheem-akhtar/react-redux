@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Provider, connect } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 
 import { fetchSignInUser } from '@/containers/Auth/actions'
 import Routes from './routes'
+import * as theme from './theme'
+import './global-styles'
 
 class Root extends Component {
   static propTypes = {
@@ -16,9 +19,11 @@ class Root extends Component {
   render () {
     const { store } = this.props
     return (
-      <Provider store={store}>
-        <Routes />
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <Routes />
+        </Provider>
+      </ThemeProvider>
     )
   }
 }
