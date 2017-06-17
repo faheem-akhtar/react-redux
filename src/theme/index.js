@@ -4,7 +4,9 @@ export const colors = {
   secondary: '#231F20',
   secondaryBg: '#EFF2F5',
   tertiary: '',
-  tertiaryBg: ''
+  tertiaryBg: '',
+  error: '#F00000',
+  borderColor: 'rgba(151, 151, 151, .1)'
 }
 
 export const fonts = {

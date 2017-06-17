@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Centered from '@/components/core/Wrappers/Centered'
 import LoginForm from '@/components/Login/form'
 import { signInUser } from '@/containers/Auth/actions'
+import AuthHeader from '@/containers/Header/AuthHeader'
 
 class LoginPage extends Component {
   constructor (props) {
@@ -30,9 +31,12 @@ class LoginPage extends Component {
   }
   render () {
     return (
-      <Centered darkBg>
-        <LoginForm onSubmit={this.submit} />
-      </Centered>
+      <div>
+        <AuthHeader />
+        <Centered darkBg>
+          <LoginForm onSubmit={this.submit} />
+        </Centered>
+      </div>
     )
   }
 }
