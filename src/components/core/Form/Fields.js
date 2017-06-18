@@ -8,8 +8,8 @@ export const Input = styled.input`
   margin-bottom: .5em;
   font-size: ${30 / 16}em;
   width: 100%;
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.primary()};
   ${props => props.error && `
-    border-color: ${props.theme.colors.error};
+    border-color: ${props.theme.colors.error()};
   `}
 `

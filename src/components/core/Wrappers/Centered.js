@@ -9,7 +9,7 @@ export default styled.div`
   justify-content: center;
   align-items: center;
   ${props => props.darkBg && `
-    background-color: ${props.theme.colors.primaryBg};
+    background-color: ${props.theme.colors.primaryBg()};
     z-index: 1;
     &:before {
       position: absolute;
