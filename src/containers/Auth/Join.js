@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Centered from '@/components/core/Wrappers/Centered'
 import SignupForm from '@/components/Signup/form'
 import { signUpUser } from '@/containers/Auth/actions'
+import { setMessage } from '@/containers/Snackbar/actions'
 
 class JoinPage extends Component {
   constructor (props) {
@@ -15,16 +16,19 @@ class JoinPage extends Component {
     router: PropTypes.object
   }
   submit (values) {
-    const { signUpUser } = this.props
-    signUpUser(values)
-      .then(user => {
-        if (!user) {
-          return
-        }
-        setTimeout(() => {
-          this.context.router.history.push('/')
-        }, 500)
-      })
+    const { setMessage } = this.props
+    setMessage('You join successfully')
+    setMessage('Welcome!')
+    // const { signUpUser } = this.props
+    // signUpUser(values)
+    //   .then(user => {
+    //     if (!user) {
+    //       return
+    //     }
+    //     setTimeout(() => {
+    //       this.context.router.history.push('/')
+    //     }, 500)
+    //   })
   }
   render () {
     return (
@@ -35,4 +39,4 @@ class JoinPage extends Component {
   }
 }
 
-export default connect(null, { signUpUser })(JoinPage)
+export default connect(null, { signUpUser, setMessage })(JoinPage)

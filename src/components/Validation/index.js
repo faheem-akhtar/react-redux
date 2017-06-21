@@ -8,5 +8,5 @@ export const email = value =>
 
 export const password = value =>
   value && !/^(?=.*[a-z])(?=.*[0-9])(?=.{8,})/i.test(value)
-    ? 'Password must be 8 characters or longer and must includes numbers'
+    ? 'Password must be 8 characters or longer and must includes a number'
     : undefined

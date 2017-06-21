@@ -4,7 +4,7 @@ import { Provider, connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
 import { fetchSignInUser } from '@/containers/Auth/actions'
-import Routes from './routes'
+import App from '@/containers/App'
 import * as theme from './theme'
 import './global-styles'
 
@@ -21,7 +21,7 @@ class Root extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <Routes />
+          <App />
         </Provider>
       </ThemeProvider>
     )
