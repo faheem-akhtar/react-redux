@@ -2,23 +2,21 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Header from '@/containers/Header'
+import Centered from '@/components/core/Wrappers/Centered'
 import SignupForm from '@/components/Signup/form'
 import { signUpUser } from '@/containers/Auth/actions'
 
-class SignupPage extends Component {
+class JoinPage extends Component {
   constructor (props) {
     super(props)
     this.submit = this.submit.bind(this)
-  }
-  static propTypes = {
-    signUpUser: PropTypes.func
   }
   static contextTypes = {
     router: PropTypes.object
   }
   submit (values) {
-    this.props.signUpUser(values)
+    const { signUpUser } = this.props
+    signUpUser(values)
       .then(user => {
         if (!user) {
           return
@@ -30,13 +28,11 @@ class SignupPage extends Component {
   }
   render () {
     return (
-      <div>
-        <Header />
-        <h2>Register an account with us</h2>
+      <Centered darkBg>
         <SignupForm onSubmit={this.submit} />
-      </div>
+      </Centered>
     )
   }
 }
 
-export default connect(null, { signUpUser })(SignupPage)
+export default connect(null, { signUpUser })(JoinPage)

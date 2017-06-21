@@ -6,6 +6,7 @@ export const Input = styled.input`
   background: none;
   text-align: inherit;
   margin-bottom: .5em;
+  font-family: inherit;
   font-size: ${30 / 16}em;
   width: 100%;
   color: ${props => props.theme.colors.primary()};

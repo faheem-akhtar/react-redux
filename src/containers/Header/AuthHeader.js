@@ -12,7 +12,14 @@ const Header = styled.header`
 
 export default class AuthHeader extends Component {
   renderJoinLogin () {
-    return <RouterLink dark to="/signup">Join</RouterLink>
+    const { page } = this.props
+    switch (page) {
+      case 'join':
+        return <RouterLink dark to="/login">Login</RouterLink>
+      case 'login':
+      default:
+        return <RouterLink dark to="/signup">Join</RouterLink>
+    }
   }
   render () {
     return (
