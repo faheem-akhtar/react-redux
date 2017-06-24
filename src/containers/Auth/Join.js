@@ -17,8 +17,13 @@ class JoinPage extends Component {
   }
   submit (values) {
     const { setMessage } = this.props
-    setMessage('You join successfully')
-    setMessage('Welcome!')
+    const flag = Math.round(Math.random())
+    if (flag) {
+      setMessage('You join successfully')
+    } else {
+      setMessage('Welcome!')
+    }
+
     // const { signUpUser } = this.props
     // signUpUser(values)
     //   .then(user => {

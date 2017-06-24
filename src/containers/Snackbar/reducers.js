@@ -7,8 +7,11 @@ const snackbar = (state, action) => {
     case SNACKBAR_SET:
       return {
         id: action.id,
-        msg: action.msg
+        msg: action.msg,
+        time: action.time
       }
+    case SNACKBAR_DISMISS:
+      return state.id !== action.id
   }
   return state
 }
@@ -21,7 +24,9 @@ const snackbars = (state = initialState, action) => {
         snackbar(undefined, action)
       ]
     case SNACKBAR_DISMISS:
-      return state
+      return state.filter(snack =>
+        snackbar(snack, action)
+      )
   }
   return state
 }
