@@ -15,7 +15,7 @@ const SnackbarWrapper = styled.div`
 const Snack = styled.div`
   max-width: 568px;
   min-width: 288px;
-  padding: 14px 24px;
+  padding: 14px 0;
   display: flex;
   justify-content: space-between;
   background-color: #323232;
@@ -24,12 +24,16 @@ const Snack = styled.div`
 `
 const Msg = styled.div`
   font-size: ${14 / 16}em;
+  padding-left: 24px;
+  padding-right: 12px;
 `
 const A = styled.a`
   font-size: ${14 / 16}em;
   text-transform: uppercase;
   text-decoration: none;
   color: #64dd17;
+  padding-right: 24px;
+  padding-left: 12px;
 `
 
 class Message extends Component {

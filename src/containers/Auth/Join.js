@@ -16,24 +16,19 @@ class JoinPage extends Component {
     router: PropTypes.object
   }
   submit (values) {
-    const { setMessage } = this.props
-    const flag = Math.round(Math.random())
-    if (flag) {
-      setMessage('You join successfully')
-    } else {
-      setMessage('Welcome!')
-    }
-
-    // const { signUpUser } = this.props
-    // signUpUser(values)
-    //   .then(user => {
-    //     if (!user) {
-    //       return
-    //     }
-    //     setTimeout(() => {
-    //       this.context.router.history.push('/')
-    //     }, 500)
-    //   })
+    const { signUpUser, setMessage } = this.props
+    signUpUser(values)
+      .then(user => {
+        if (!user) {
+          return
+        }
+        setTimeout(() => {
+          this.context.router.history.push('/')
+        }, 500)
+      })
+      .catch(e => {
+        setMessage(e.message || 'Something went wrong. Please try again')
+      })
   }
   render () {
     return (

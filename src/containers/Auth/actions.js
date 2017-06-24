@@ -29,9 +29,6 @@ export const signUpUser = ({ email, password, name }) => {
         })
         return user
       })
-      .catch(e => {
-        console.log(e.message)
-      })
   }
 }
 
