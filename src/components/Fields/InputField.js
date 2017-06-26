@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import { Input } from '@/components/core/Form/Fields'
-import FieldWrapper from '@/components/core/Wrappers/Field'
+import FieldWrapper from '@/components/Wrappers/Field'
 import ValidationMessage from '@/components/Validation/Message'
 
+const InputField = styled.input`
+  padding: 0.4em 0.5em;
+  border: 1px solid transparent;
+  background: none;
+  text-align: inherit;
+  margin-bottom: .5em;
+  font-family: inherit;
+  font-size: ${30 / 16}em;
+  width: 100%;
+  color: ${props => props.theme.colors.primary()};
+  ${props => props.error && `
+    border-color: ${props.theme.colors.error()};
+  `}
+`
+
 export default class RenderInput extends Component {
-  static propTypes = {
-    input: PropTypes.object,
-    label: PropTypes.string,
-    type: PropTypes.string,
-    meta: PropTypes.object,
-    border: PropTypes.bool
-  }
   renderLabel () {
     const { input, label } = this.props
     if (label) {
@@ -36,7 +43,7 @@ export default class RenderInput extends Component {
     return (
       <FieldWrapper border={border}>
         {this.renderLabel()}
-        <Input {...input} id={input.name} type={type} error={touched && error} {...rest} />
+        <InputField {...input} id={input.name} type={type} error={touched && error} {...rest} />
         {this.renderError()}
       </FieldWrapper>
     )

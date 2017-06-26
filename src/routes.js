@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import ProtectedRoute from '@/containers/Auth/protected'
+import ProtectedRoute from '@/components/Auth/ProtectedRoute'
 
-import HomePage from '@/containers/HomePage'
-import AuthLayout from '@/containers/Layouts/Auth'
+import HomePage from '@/components/Layouts/Home'
+import AuthLayout from '@/components/Layouts/AuthLayout'
 
 export default () => (
   <BrowserRouter>

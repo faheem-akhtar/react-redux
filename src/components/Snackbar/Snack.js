@@ -34,6 +34,8 @@ const A = styled.a`
   color: #64dd17;
   padding-right: 24px;
   padding-left: 12px;
+  display: flex;
+  align-items: center;
 `
 
 class Message extends Component {

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Centered from '@/components/core/Wrappers/Centered'
-import LoginForm from '@/components/Login/form'
-import { signInUser } from '@/containers/Auth/actions'
+import Centered from '@/components/Wrappers/Centered'
+import LoginForm from './LoginForm'
+import { signInUser } from './actions'
+import { setMessage } from '@/components/Snackbar/actions'
 
 class LoginPage extends Component {
   constructor (props) {
@@ -15,7 +16,7 @@ class LoginPage extends Component {
     router: PropTypes.object
   }
   submit (values) {
-    const { signInUser } = this.props
+    const { signInUser, setMessage } = this.props
     signInUser(values).then(user => {
       // TODO: we need a better solution here
       if (!user) {
@@ -24,6 +25,10 @@ class LoginPage extends Component {
       setTimeout(() => {
         this.context.router.history.push('/')
       }, 500)
+    })
+    .catch(e => {
+      console.log(e)
+      setMessage(e.message || 'Something went wrong. Please try again')
     })
   }
   render () {
@@ -35,4 +40,4 @@ class LoginPage extends Component {
   }
 }
 
-export default connect(null, { signInUser })(LoginPage)
+export default connect(null, { signInUser, setMessage })(LoginPage)

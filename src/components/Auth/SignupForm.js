@@ -2,9 +2,9 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { withTheme } from 'styled-components'
 
-import FormWrapper from '@/components/core/Wrappers/Form'
-import Button, { ButtonsWrapper } from '@/components/core/Button'
-import RenderInput from '@/components/Fields/input'
+import FormWrapper from '@/components/Wrappers/Form'
+import Button, { ButtonsWrapper } from '@/components/Button'
+import RenderInput from '@/components/Fields/InputField'
 import * as validation from '@/components/Validation'
 
 const SignupForm = ({ handleSubmit, pristine, submitting }) => {

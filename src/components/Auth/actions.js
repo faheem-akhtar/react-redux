@@ -5,12 +5,7 @@ import { SIGN_IN, SIGN_OUT } from '@/store/action-types'
 const uidStorageKey = 'MEM_UID'
 
 export const signInUser = ({ email, password }) => {
-  return () => {
-    return firebase.auth().signInWithEmailAndPassword(email, password)
-      .catch(e => {
-        console.log(e.message)
-      })
-  }
+  return () => firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
 export const signOutUser = () => () => firebase.auth().signOut()
@@ -54,7 +49,7 @@ export const fetchSignInUser = () => {
 export const util = {
   isAuthenticated (auth) {
     const currentUser = auth ? auth.user : firebase.auth().currentUser
-    return !!currentUser || !!localStorage.getItem(uidStorageKey)
+    return !!currentUser.uid || !!localStorage.getItem(uidStorageKey)
   }
 }
 

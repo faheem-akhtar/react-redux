@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Provider, connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { fetchSignInUser } from '@/containers/Auth/actions'
-import App from '@/containers/App'
+import { fetchSignInUser } from '@/components/Auth/actions'
+import App from './App'
 import * as theme from './theme'
 import './global-styles'
 

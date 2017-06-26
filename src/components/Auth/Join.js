@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Centered from '@/components/core/Wrappers/Centered'
-import SignupForm from '@/components/Signup/form'
-import { signUpUser } from '@/containers/Auth/actions'
-import { setMessage } from '@/containers/Snackbar/actions'
+import Centered from '@/components/Wrappers/Centered'
+import SignupForm from './SignupForm'
+import { signUpUser } from './actions'
+import { setMessage } from '@/components/Snackbar/actions'
 
 class JoinPage extends Component {
   constructor (props) {
@@ -27,6 +27,7 @@ class JoinPage extends Component {
         }, 500)
       })
       .catch(e => {
+        console.log(e)
         setMessage(e.message || 'Something went wrong. Please try again')
       })
   }

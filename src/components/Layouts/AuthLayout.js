@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import AuthHeader from '@/containers/Header/AuthHeader'
-import LoginPage from '@/containers/Auth/Login'
-import JoinPage from '@/containers/Auth/Join'
+import AuthHeader from '@/components/Header/AuthHeader'
+import LoginPage from '@/components/Auth/Login'
+import JoinPage from '@/components/Auth/Join'
 
 class AuthLayout extends Component {
   renderPage () {

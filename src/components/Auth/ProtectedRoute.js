@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
-import { util } from '@/containers/Auth/actions'
+import { util } from './actions'
 
 class ProtectedRoute extends Component {
-  static propTypes = {
-    component: PropTypes.func,
-    auth: PropTypes.object
-  }
   render () {
     const { component: Component, auth, ...rest } = this.props
 

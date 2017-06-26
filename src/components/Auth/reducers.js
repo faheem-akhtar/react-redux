@@ -1,7 +1,7 @@
 import { SIGN_IN, SIGN_OUT } from '@/store/action-types'
 
 const initialState = {
-  user: null
+  user: {}
 }
 
 export default (state = initialState, action) => {
@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       }
     case SIGN_OUT:
       return {
-        user: null
+        user: {}
       }
   }
   return state

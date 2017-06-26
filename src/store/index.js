@@ -4,8 +4,8 @@ import { reducer as formReducer } from 'redux-form'
 import { firebaseStateReducer } from 'react-redux-firebase'
 
 import config from '../../config'
-import auth from '@/containers/Auth/reducers'
-import snackbar from '@/containers/Snackbar/reducers'
+import auth from '@/components/Auth/reducers'
+import snackbar from '@/components/Snackbar/reducers'
 
 const rootReducer = combineReducers({
   auth,

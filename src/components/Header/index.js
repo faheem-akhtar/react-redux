@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
-import { signOutUser, util } from '@/containers/Auth/actions'
+import { signOutUser, util } from '@/components/Auth/actions'
 
 class Header extends Component {
-  static propTypes = {
-    auth: PropTypes.object,
-    signOutUser: PropTypes.func
-  }
   constructor () {
     super()
     this.logoutClickHandler = this.logoutClickHandler.bind(this)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { RouterLink } from '@/components/core/Button'
+import { RouterLink } from '@/components/Button'
 
 const Header = styled.header`
   position: absolute;
