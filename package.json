@@ -4,7 +4,9 @@
   "description": "A react boilerplate application",
   "author": "Faheem Akhtar <faheempiscean@gmail.com>",
   "scripts": {
-    "start": "node ./server/index.js"
+    "dev": "node server",
+    "start": "cross-env NODE_ENV=production node server",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress --hide-modules"
   },
   "engines": {
     "node": ">= 4.0.0",
@@ -16,6 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^5.0.1",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "firebase": "^4.1.2",

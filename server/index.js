@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 
 const config = require('../config')
 
@@ -11,7 +12,7 @@ if(!isProd) {
   const devServer = require('../build/dev-server')
   devServer(app, port)
 } else {
-  app.use(express.static(__dirname + '../dist'));
+  app.use(express.static(path.join(__dirname, '../dist')));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
   });
