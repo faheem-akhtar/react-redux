@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server",
     "start": "cross-env NODE_ENV=production node server",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress --hide-modules"
+    "build": "webpack --config build/webpack.prod.conf.js --progress --colors",
+    "postinstall": "npm run build"
   },
   "engines": {
     "node": ">= 4.0.0",
