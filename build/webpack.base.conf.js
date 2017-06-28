@@ -1,9 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+let FriendlyErrorsPlugin
 
 const config = require('../config')
+
+if(!config.isProd) {
+  FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+}
 
 module.exports = {
   entry: {
