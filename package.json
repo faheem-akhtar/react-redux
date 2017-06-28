@@ -4,10 +4,10 @@
   "description": "A react boilerplate application",
   "author": "Faheem Akhtar <faheempiscean@gmail.com>",
   "scripts": {
-    "dev": "node server",
-    "start": "cross-env NODE_ENV=production node server",
+    "start": "node server",
     "build": "webpack --config build/webpack.prod.conf.js --progress --colors",
-    "postinstall": "npm run build"
+    "build:clean": "rimraf ./dist",
+    "postinstall": "npm run build:clean && npm run build"
   },
   "engines": {
     "node": ">= 4.0.0",
@@ -19,9 +19,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cross-env": "^5.0.1",
     "express": "^4.15.2",
-    "extract-text-webpack-plugin": "^2.1.0",
     "firebase": "^4.1.2",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
@@ -34,11 +32,14 @@
     "redux": "^3.6.0",
     "redux-form": "^6.7.0",
     "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.1",
     "sanitize.css": "^5.0.0",
     "styled-components": "^2.0.1",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "webpack": "^3.0.0"
   },
   "devDependencies": {
+    "cross-env": "^5.0.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
@@ -56,13 +57,13 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.28.0",
     "react-hot-loader": "^3.0.0-beta.7",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
