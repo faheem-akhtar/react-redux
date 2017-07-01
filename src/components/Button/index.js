@@ -29,6 +29,19 @@ const ButtonStyle = props => (`
   `}
 `)
 
+const SimpleButtonStyle = props => (`
+  color: ${props.theme.colors.secondary()};
+  text-decoration: none;
+  text-transform: uppercase;
+  ${props.dark && `
+    color: ${props.theme.colors.primary(0.5)};
+    &:hover {
+      border-color: #FFF;
+      color: #FFF;
+    }
+  `}
+`)
+
 const Button = styled.button`
   ${props => ButtonStyle(props)}
 `
@@ -41,8 +54,17 @@ export const ButtonsWrapper = styled.div`
 const RouterLinkComponent = ({ children, ...rest }) => {
   return <Link {..._.omit(rest, ['dark'])}>{children}</Link>
 }
-
 export const RouterLink = styled(RouterLinkComponent)`
   display: inline-block;
   ${props => ButtonStyle(props)}
 `
+
+const SimpleLinkComponent = ({ children, ...rest }) => {
+  return <Link {..._.omit(rest, ['dark'])}>{children}</Link>
+}
+export const SimpleLink = styled(SimpleLinkComponent)`
+  display: inline-block;
+  ${props => SimpleButtonStyle(props)}
+`
+
+export const SimpleAnchor = SimpleLink.withComponent('a')
