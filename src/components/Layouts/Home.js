@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 
 import Header from '@/components/Header'
 
-const H2 = styled.h2`
-  color: #000
+const H1 = styled.h2`
+  color: #000;
+  text-align: center;
+  padding: 0 1em;
 `
 
 class HomePage extends Component {
@@ -14,7 +16,7 @@ class HomePage extends Component {
     return (
       <div>
         <Header />
-        <H2>Welcome {user.displayName}</H2>
+        <H1>Welcome {user.displayName}</H1>
       </div>
     )
   }

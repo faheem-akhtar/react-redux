@@ -1,10 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
+import { SimpleLink, SimpleAnchor } from '@/components/Button'
 import { signOutUser, util } from '@/components/Auth/actions'
 
-class Header extends Component {
+const Header = styled.header`
+  background-color: #000;
+  padding: 15px 10px;
+`
+
+const UL = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+`
+
+const LI = styled.li`
+  margin: 0 .5em;
+`
+
+class HeaderComponent extends Component {
   constructor () {
     super()
     this.logoutClickHandler = this.logoutClickHandler.bind(this)
@@ -12,15 +30,15 @@ class Header extends Component {
   renderLoginNav () {
     const { auth } = this.props
     if (util.isAuthenticated(auth)) {
-      return <li><a href="#" onClick={this.logoutClickHandler}>Logout</a></li>
+      return <LI><SimpleAnchor dark href="#" onClick={this.logoutClickHandler}>Logout</SimpleAnchor></LI>
     } else {
-      return <li><Link to="/login">Login</Link></li>
+      return <LI><SimpleLink dark to="/login">Login</SimpleLink></LI>
     }
   }
   renderRegisterNav () {
     const { auth } = this.props
     if (!util.isAuthenticated(auth)) {
-      return <li><Link to="/signup">Register</Link></li>
+      return <LI><SimpleLink dark to="/signup">Register</SimpleLink></LI>
     } else {
       return ''
     }
@@ -31,16 +49,15 @@ class Header extends Component {
   }
   render () {
     return (
-      <header>
-        <h1>React Redux Boilerplate</h1>
+      <Header>
         <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
+          <UL>
+            <LI><SimpleLink dark to="/">Home</SimpleLink></LI>
             {this.renderRegisterNav()}
             {this.renderLoginNav()}
-          </ul>
+          </UL>
         </nav>
-      </header>
+      </Header>
     )
   }
 }
@@ -49,4 +66,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { signOutUser })(Header)
+export default connect(mapStateToProps, { signOutUser })(HeaderComponent)
