@@ -8,9 +8,9 @@ export default () => (
     <h1>React Redux Boilerplate</h1>
     <nav>
       <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><a href='#'>Register</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><a href="#">Register</a></li>
       </ul>
     </nav>
     <br />
